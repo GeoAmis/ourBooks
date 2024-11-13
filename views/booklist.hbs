@@ -1,0 +1,59 @@
+<div class="row mt-5">
+    <div class="col-12">
+        <!-- if user has books show how many -->
+        <h2>τα βιβλία μου {{#if books}} - ({{books.length}}) {{/if}}</h2> 
+    </div>
+</div>
+<!-- if user has books -->
+{{#if books}}
+    <div class="table-responsive-sm">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Τίτλος</th>
+                    <th>Συγγραφέας</th>
+                    <th class="d-print-none">
+                        <!-- button to redirect to /addbookform-->
+                        <a class="btn btn-sm btn-success" href="/addbookform">Προσθήκη</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- based on the logged in user show each book title and author -->
+                {{#each books}}
+                    <tr>
+                        <td>{{this.title}}</td>
+                        <td>{{this.author}}</td>
+                        <td>
+                            <!-- delete book from user's booklist-->
+                            <a class="btn btn-sm btn-danger" href="/delete/{{this.title}}">Διαγραφή</a>
+                            <!-- redirect to addcommentform of that book to add a new comment or see what and if other users have commented on it -->
+                            <a class="btn btn-sm btn-info offset-1" href="/addcommentform?bookTitle={{this.title}}">Σχόλια...</a>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+{{/if}}
+<!-- in case user has not any books -->
+{{#unless books}}
+    <div class="row mt-5">
+        <div class="col"> Δεν υπάρχει κανένα βιβλίο στο ourBooks </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <!-- button to redirect to /addbookform-->
+            <a class="btn btn-sm btn-success" href="/addbookform">Προσθήκη</a>
+        </div>
+    </div>
+{{/unless}}
+{{#if error}}
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+            <div class="alert alert-primary" role="alert">
+                {{error}}
+            </div>
+        </div>
+    </div>
+{{/if}}
