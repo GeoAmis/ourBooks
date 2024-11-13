@@ -50,4 +50,4 @@ ___
 
 ### 6. Posting the application to the public Render hosting platform.
 
-> The application has been published on __[Render](https://render.com)__ via the following link __[ourBooks@Render](https://ourbooks-xote.onrender.com)__. The current database will expire on December 11, 2024.
+> The application has been published on __[Render](https://render.com)__ via the following link __[ourBooks@Render](https://ourbooks-825m.onrender.com)__. The current database will expire on December 11, 2024.
